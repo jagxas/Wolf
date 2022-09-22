@@ -1,0 +1,3710 @@
+#:import Factory kivy.factory.Factory
+#:import SlideTransition kivy.uix.screenmanager.SlideTransition
+#:import CardTransition kivy.uix.screenmanager.CardTransition
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+#:import RiseInTransition kivy.uix.screenmanager.RiseInTransition
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+#:import ShaderTransition kivy.uix.screenmanager.ShaderTransition
+#:import SwapTransition kivy.uix.screenmanager.SwapTransition
+#:import WipeTransition kivy.uix.screenmanager.WipeTransition
+#:import TransitionBase kivy.uix.screenmanager.TransitionBase
+
+Manager:
+    transition: SlideTransition()
+    StartingScreen:
+    Enable:
+    PlayerNum:
+    PlayerNames:
+    GivePhone:
+    Voting:
+    Kurt:
+    Gozcu:
+    Cadi:
+    Koylu:
+    Doctor:
+    Papaz:
+    RedLady:
+    Medium:
+    Detective:
+    Prezident:
+    Sabah:
+    Kill:
+    HolyWater:
+    Heal:
+    LadyChose:
+    Revive:
+    HealDoc:
+    Gozle:
+    Dedektif:
+    End:
+<popmenu@Popup>:
+    auto_dismiss: True
+    title: "INFO: Back To Menu"
+    title_align: "center"
+    title_size: "17sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    font_name: "z-font.otf"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+        spacing: "20dp"
+        Button:
+            text: "Are you sure, you want to\nturn back to menu? That'll\nend the current game"
+            font_name: "z-font.otf"
+            line_height: 1.5
+            pos_hint: {'center_x': .5,'center_y': 0}
+            halign: 'center'
+            valign: 'bottom'
+            background_color: 0,0,0,0
+
+        BoxLayout:
+            spacing:  "2dp"
+            height: self.minimum_height
+            width: self.minimum_width
+            orientation: "horizontal"
+            Button:
+                text: "Yes"
+                font_name: "z-font.otf"
+                pos_hint: {'center_x': .3,'center_y': .6}
+                size_hint: 1,.6
+                background_normal: ''
+                font_name: "z-font.otf"
+                background_color: 202/255, 0, 103/255, 1
+                on_release:  app.root.current = "Start"; root.dismiss()
+            Button:
+                text: "Cancel"
+                font_name: "z-font.otf"
+                pos_hint: {'center_x': .3,'center_y': .6}
+                size_hint: 1, .6
+                background_normal: ''
+                font_name: "z-font.otf"
+                background_color: 202/255, 0, 103/255, 1
+                on_release: root.dismiss()
+
+<Popinfo@Popup>:
+    auto_dismiss: True
+    title: "INFO: ENABLING SCREEN"
+    title_align: "center"
+    title_size: 17
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    font_name: "z-font.otf"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+    Button:
+        text: "Activate and deactivate\nsome roles to customize\nyour gameplay. There must\nbe at least 1 werewolf\nand two different roles."
+        background_color:0,0,0,0
+        font_name: "z-font.otf"
+        line_height: 1.6
+        halign: 'center'
+        valign: 'middle'
+
+<infoplaynum@Popup>:
+    auto_dismiss: True
+    title: "INFO: PLAYER NUMBER"
+    title_align: "center"
+    title_size: "17sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    font_name: "z-font.otf"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+
+    #Image:
+    #    source: "images/info-pnum.png"
+    #    size_hint: (1.1, 1.1)
+    #    pos_hint: {'center_x': 0.5, 'center_y':0.45}
+    Button:
+        text: "CHOOSE WITH HOW MANY\nPLAYERS YOU WANT TO PLAY\nTHIS GAME. YOU CAN ENTER\nONLY A NUMBER BETWEEN 4\nAND 9"
+        font_name: "z-font.otf"
+        line_height: 1.6
+        halign: 'center'
+        valign: 'middle'
+        background_color: 0,0,0,0
+
+<infoplayname@Popup>:
+    auto_dismiss: True
+    title: "INFO: Player Names"
+    title_align: "center"
+    title_size: "18sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    font_name: "z-font.otf"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+
+    Button:
+        text: "Enter the name of\nthe players in an order.\nThat order will be same\nas the one in the game\nand players will be\ncalled with this name."
+        font_name: "z-font.otf"
+        line_height: 1.4
+        halign: 'center'
+        valign: 'middle'
+        background_color: 0,0,0,0
+
+    #Image:
+    #    source: "images/info-name.png"
+    #    size_hint: (1.1, 1.1)
+    #    pos_hint: {'center_x': 0.5, 'center_y':0.5}
+
+<infoabilityerror@Popup>:
+    auto_dismiss: True
+    title: "INFO: ERROR!"
+    title_align: "center"
+    title_size: "17sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    font_name: "z-font.otf"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+
+    Button:
+        text: "You already used\nyour ability!\nJust skip this screen."
+        font_name: "z-font.otf"
+        line_height: 1.6
+        halign: 'center'
+        valign: 'middle'
+        background_color: 0,0,0,0
+
+<infogive@Popup>:
+    auto_dismiss: True
+    title: "INFO: Give The Device To"
+    title_align: "center"
+    title_size: "16sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    font_name: "z-font.otf"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+
+    Button:
+        text: "Give the device to the\nnext player. The Next\n player should click to\nsee his/her role and not\nshow it to others"
+        font_name: "z-font.otf"
+        line_height: 1.5
+        halign: 'center'
+        valign: 'middle'
+        background_color: 0,0,0,0
+
+<infomorning@Popup>:
+    auto_dismiss: True
+    title: "INFO: Morning"
+    title_align: "center"
+    title_size: "17sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    font_name: "z-font.otf"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+
+    Button:
+        text: "IT'S MORNING.\nSee who died last night\nand discuss, who the\nwerewolf might be"
+        background_color: 0,0,0,0
+        font_name: "z-font.otf"
+        line_height: 1.6
+        halign: 'center'
+        valign: 'middle'
+<infovillager@Popup>:
+    auto_dismiss: True
+    title: "INFO: Villager"
+    title_align: "center"
+    title_size: "17sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    font_name: "z-font.otf"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+
+    Button:
+        text: "You are a villager.\nYou can't do anything\nbut vote"
+        background_color: 0,0,0,0
+        font_name: "z-font.otf"
+        line_height: 1.6
+        halign: 'center'
+        valign: 'middle'
+<infopresident@Popup>:
+    auto_dismiss: True
+    title: "INFO: Mayor"
+    title_align: "center"
+    title_size: "17sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    font_name: "z-font.otf"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+
+    Button:
+        text: "You are the mayor.\nYour vote counts 2\nTherefore, others will\nknow who you are."
+        background_color: 0,0,0,0
+        font_name: "z-font.otf"
+        line_height: 1.6
+        halign: 'center'
+        valign: 'middle'
+
+<infoseer@Popup>:
+    auto_dismiss: True
+    title: "INFO: Seer"
+    font_name: "z-font.otf"
+    title_align: "center"
+    title_size: "17sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+
+    Button:
+        text: "You are a seer.\nYou can spy people\n and learn\nwhat their role is"
+        background_color: 0,0,0,0
+        font_name: "z-font.otf"
+        line_height: 1.6
+        halign: 'center'
+        valign: 'middle'
+<infowolf@Popup>:
+    auto_dismiss: True
+    title: "INFO: Werewolf"
+    title_align: "center"
+    title_size: "17sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    font_name: "z-font.otf"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+
+    Button:
+        text: "You are a Werewolf.\nYour goal is to kill\n all village locals.\n If all werewolves die,\n the game ends"
+        background_color: 0,0,0,0
+        font_name: "z-font.otf"
+        line_height: 1.5
+        halign: 'center'
+        valign: 'middle'
+<infowitch@Popup>:
+    auto_dismiss: True
+    title: "INFO: Witch"
+    title_align: "center"
+    title_size: "17sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    font_name: "z-font.otf"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+
+    Button:
+        text: "You are a witch.\nYou can protect somebody\n and prevent his death\n or poison and kill"
+        background_color: 0,0,0,0
+        font_name: "z-font.otf"
+        line_height: 1.7
+        halign: 'center'
+        valign: 'middle'
+<infodoc@Popup>:
+    auto_dismiss: True
+    title: "INFO: Doctor"
+    font_name: "z-font.otf"
+    title_align: "center"
+    title_size: "17sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+
+    Button:
+        text: "You are a doctor. You\ncan protect people, but\ncan't choose the same\nperson in a row"
+        background_color: 0,0,0,0
+        font_name: "z-font.otf"
+        line_height: 1.6
+        halign: 'center'
+        valign: 'middle'
+<infodetective@Popup>:
+    auto_dismiss: True
+    title: "INFO: Detective"
+    font_name: "z-font.otf"
+    title_align: "center"
+    title_size: "17sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+
+    Button:
+        text: "You are a detective.\n Each night you can choose\ntwo people and see, if\nthey belong to the\nsame team"
+        background_color: 0,0,0,0
+        font_name: "z-font.otf"
+        line_height: 1.6
+        halign: 'center'
+        valign: 'middle'
+
+<infopriest@Popup>:
+    auto_dismiss: True
+    title: "INFO: Priest"
+    font_name: "z-font.otf"
+    title_align: "center"
+    title_size: "17sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+
+    Button:
+        text: "You are a priest. You have\nholy water, which you can\nthrow on somebody else.\nIf (s)he's a wolf, (s)he dies.\nif (s)he's not, you die"
+        background_color: 0,0,0,0
+        font_name: "z-font.otf"
+        line_height: 1.4
+        halign: 'center'
+        valign: 'middle'
+<infomedium@Popup>:
+    auto_dismiss: True
+    title: "INFO: Medium"
+    title_align: "center"
+    title_size: "17sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    font_name: "z-font.otf"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+
+    Button:
+        text: "You are a medium.\nOnce per game you can\nchoose somebody and\nrevive him/her.\nOnce per game...  "
+        background_color: 0,0,0,0
+        font_name: "z-font.otf"
+        line_height: 1.5
+        halign: 'center'
+        valign: 'middle'
+<infokill@Popup>:
+    auto_dismiss: True
+    title: "INFO: Kill"
+    title_align: "center"
+    title_size: "17sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    font_name: "z-font.otf"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+
+    Button:
+        text: "Choose somebody and\nkill him/her. If nobody\nprevents it, (s)he'll be\ndead by morning"
+        background_color: 0,0,0,0
+        font_name: "z-font.otf"
+        line_height: 1.4
+        halign: 'center'
+        valign: 'middle'
+<infodetect@Popup>:
+    auto_dismiss: True
+    title: "INFO: Detective"
+    font_name: "z-font.otf"
+    title_align: "center"
+    title_size: "17sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+
+    Button:
+        text: "There are two teams:\nVillage team and werewolves.\nVillage team includes all\nroles except werewolves.\nChoose two and see\nif they belong the same team"
+        background_color: 0,0,0,0
+        font_name: "z-font.otf"
+        line_height: 1.5
+        halign: 'center'
+        valign: 'middle'
+<infoheal@Popup>:
+    auto_dismiss: True
+    title: "INFO: Protect"
+    title_align: "center"
+    title_size: "17sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    font_name: "z-font.otf"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+
+    Button:
+        text: "Choose somebody and\nprotect him/her. It will\nprevent his death in\ncase someone tries to\nkill him/her"
+        background_color: 0,0,0,0
+        font_name: "z-font.otf"
+        line_height: 1.6
+        halign: 'center'
+        valign: 'middle'
+<infospy@Popup>:
+    auto_dismiss: True
+    title: "INFO: Seer"
+    title_align: "center"
+    title_size: "17sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    font_name: "z-font.otf"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+
+    Button:
+        text: "Choose somebody and\nsee his/her role"
+        background_color: 0,0,0,0
+        font_name: "z-font.otf"
+        line_height: 1.35
+        halign: 'center'
+        valign: 'middle'
+<infoladychose@Popup>:
+    auto_dismiss: True
+    title: "INFO: Red Lady"
+    title_align: "center"
+    title_size: "17sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    font_name: "z-font.otf"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+
+    Button:
+        text: "You're a red lady.\nYou can visit a person\nand survive a attacks.\nBut if that person gets\nattacked or is a\nwerewolf, you die :)"
+        background_color: 0,0,0,0
+        font_name: "z-font.otf"
+        line_height: 1.35
+        halign: 'center'
+        valign: 'middle'
+<infovote@Popup>:
+    auto_dismiss: True
+    title: "INFO: Vote"
+    title_align: "center"
+    title_size: "17sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    font_name: "z-font.otf"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+
+    Button:
+        text: "Everyone will vote the\nperson, who (s)he thinks\nthe werewolf is.\nIn case of a draw, no one\nwill be executed."
+        background_color: 0,0,0,0
+        font_name: "z-font.otf"
+        line_height: 1.3
+        halign: 'center'
+        valign: 'middle'
+
+<infonoroles@Popup>:
+    auto_dismiss: True
+    title: "INFO: Not enough roles"
+    title_align: "center"
+    title_size: "17sp"
+    title_font: "z-font.otf"
+    separator_height: 2
+    background: "images/z-night2.png"
+    font_name: "z-font.otf"
+    size_hint: .85, .3
+    pos_hint: {'center_x': .5,'center_y': .5}
+
+    Button:
+        text: "You don't have enough\nroles activated! Go and\nenable some more!"
+        background_color: 0,0,0,0
+        font_name: "z-font.otf"
+        line_height: 1.04
+        halign: 'center'
+        valign: 'middle'
+
+#The main widgets start here !!!
+
+<StartingScreen>:
+    name: "Start"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+
+    Image:
+        source: "images/z-moon.png"
+        size_hint: (.35, .35)
+        pos_hint: {'center_x': 0.5, 'center_y':.77}
+        allow_stretch: True
+        keep_ratio: True
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+
+    Button:
+        text: "New Game"
+        size_hint: (.6, .1)
+        pos_hint: {'center_x': 0.5, 'y':.45}
+        #background_normal: ''
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        on_release:
+            if root.enoughqm() == True: app.root.current = "Number"; root.manager.TF_Val = True;root.cleansing(); root.manager.transition.direction = "left"; root.manager.SchonUsed = [0, 0, 0, 0, 0, 0, 0, 0, 0]; root.manager.Indicator = 0
+            else: Factory.noroles().open()
+    Button:
+        text: "Enable Roles"
+        size_hint: (.6, .1)
+        pos_hint: {'center_x': 0.5, 'y':.35}
+        #background_normal: ''
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        on_release: app.root.current = "enable"; root.hmm(); root.manager.transition.direction = "left"
+
+<Enable>:
+    name: "enable"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: True
+        BoxLayout:
+            orientation: "vertical"
+            size_hint_y: None
+            height: self.minimum_height
+            width: self.minimum_width
+            spacing: "450dp"
+            padding: "40dp"
+
+
+            Button: #Line1
+                text:"Enable & disable\nthe roles"
+                font_name: "z-font.otf"
+                font_size: "20sp" #diğerleri ok bu değilse boxa çevir istersen
+                height: "1dp"
+                background_color: 0,0,0,0
+                size_hint: 1, None
+                pos_hint: {'center_x': .5, 'center_y':.6}
+                halign: 'center'
+                valign: 'middle'
+
+
+            BoxLayout:
+                orientation: "vertical"
+                spacing: "20dp"
+                BoxLayout: #Line2
+                    orientation: "horizontal"
+                    spacing: "20dp"
+                    Button:
+                        size_hint: 1, None
+                        background_color: 0,0,0,0
+                        height: "400dp"
+                        on_release: Factory.infowolf().open()
+                        Image:
+                            source: "images/z-wolf.png"
+                            height: self.parent.height
+                            width: self.parent.width
+                            #size_hint: (1, None)
+                            center_x: self.parent.center_x - (( self.parent.center_x - self.parent.x ))
+                            center_y: self.parent.center_y
+                            allow_stretch: True
+                            keep_ratio: True
+
+                    Button:
+                        size_hint: 1, None
+                        background_color: 0,0,0,0
+                        height: "400dp"
+                        on_release: Factory.infowitch().open()
+                        Image:
+                            source: "images/z-witch.png"
+                            height: self.parent.height
+                            width: self.parent.width
+                            #size_hint: (None, None) #cback
+                            #center: self.parent.center
+                            center_x: self.parent.center_x - (( self.parent.center_x - self.parent.x ))
+                            center_y: self.parent.center_y
+                            allow_stretch: True
+                            keep_ratio: True
+
+                BoxLayout: #Line3
+                    orientation: "horizontal"
+                    spacing: "20dp"
+                    BoxLayout:
+                        orientation: "vertical"
+                        width: root.width
+                        height: "400dp"
+                        Label:
+                            id: slab
+                            text: "1"
+                            font_name: "z-font.otf"
+                            font_size: "22sp"
+                            height: "400dp"
+                        Slider:
+                            id: wolff
+                            min: 1
+                            max: 2
+                            step: 1
+                            orientation: "horizontal"
+                            height: "100dp"
+                            size_hint: 1, None
+                            on_value: root.s_up(*args)
+                    Switch:
+                        id: witch
+                        height: "100dp"
+                        size_hint: 1, None
+                        disabled: False
+                        active: True
+                        on_active: root.update(); root.least() # root.ids.seer.active = False;
+
+            BoxLayout:
+                orientation: "vertical"
+                spacing: "20dp"
+                BoxLayout:#Line4
+                    orientation: "horizontal"
+                    spacing: "20dp"
+                    Button:
+                        size_hint: 1,None
+                        background_color: 0,0,0,0
+                        height: "400dp"
+                        on_release: Factory.infoseer().open()
+                        Image:
+                            source: "images/z-seer.png"
+                            height: self.parent.height
+                            width: self.parent.width
+                            #size_hint: (1, None)
+                            center_x: self.parent.center_x - (( self.parent.center_x - self.parent.x ))
+                            center_y: self.parent.center_y
+                            allow_stretch: True
+                            keep_ratio: True
+                    Button:
+                        size_hint: 1, None
+                        background_color: 0,0,0,0
+                        height: "400dp"
+                        on_release: Factory.infovillager().open()
+                        Image:
+                            source: "images/z-villager.png"
+                            height: self.parent.height
+                            width: self.parent.width
+                            #size_hint: (None, None) #cback
+                            center_x: self.parent.center_x - (( self.parent.center_x - self.parent.x ))
+                            center_y: self.parent.center_y
+                            allow_stretch: True
+                            keep_ratio: True
+                BoxLayout:#Line5
+                    orientation: "horizontal"
+                    spacing: "20dp"
+                    Switch:
+                        id: seer
+                        height: "100dp"
+                        size_hint: 1, None
+                        disabled: False
+                        active: True
+                        on_active: root.update();root.least()
+                    Switch:
+                        id: villager
+                        height: "100dp"
+                        size_hint: 1, None
+                        disabled: False
+                        active: True
+                        on_active: root.update();root.least()
+            BoxLayout:
+                orientation: "vertical"
+                spacing: "20dp"
+                BoxLayout:#Line6
+                    orientation: "horizontal"
+                    spacing: "20dp"
+                    Button:
+                        size_hint: 1, None
+                        background_color: 0,0,0,0
+                        height: "400dp"
+                        on_release: Factory.infodoc().open()
+                        Image:
+                            source: "images/z-doctor.png"
+                            height: self.parent.height
+                            width: self.parent.width
+                            #size_hint: (1, None)
+                            center_x: self.parent.center_x - (( self.parent.center_x - self.parent.x ))
+                            center_y: self.parent.center_y
+                    Button:
+                        size_hint: 1, None
+                        background_color: 0,0,0,0
+                        height: "400dp"
+                        on_release: Factory.infopresident().open()
+                        Image:
+                            source: "images/z-mayor.png"
+                            height: self.parent.height
+                            width: self.parent.width
+                            #size_hint: (None, None) #cback
+                            center_x: self.parent.center_x - (( self.parent.center_x - self.parent.x ))
+                            center_y: self.parent.center_y
+                BoxLayout:#Line7
+                    orientation: "horizontal"
+                    spacing: "20dp"
+                    Switch:
+                        id: doc
+                        height: "100dp"
+                        size_hint: 1, None
+                        disabled: False
+                        active: True
+                        on_active: root.update();root.least()
+                    Switch:
+                        id: prsdnt
+                        height: "100dp"
+                        size_hint: 1, None
+                        disabled: False
+                        active: True
+                        on_active: root.update();root.least()
+            BoxLayout:
+                orientation: "vertical"
+                spacing: "20dp"
+                BoxLayout:#Line8
+                    orientation: "horizontal"
+                    spacing: "20dp"
+                    Button:
+                        size_hint: 1, None
+                        background_color: 0,0,0,0
+                        on_release: Factory.infodetective().open()
+                        height: "400dp"
+                        Image:
+                            source: "images/z-detective.png"
+                            height: self.parent.height
+                            width: self.parent.width
+                            #size_hint: (1, None)
+                            center_x: self.parent.center_x - (( self.parent.center_x - self.parent.x ))
+                            center_y: self.parent.center_y
+                    Button:
+                        size_hint: 1, None
+                        background_color: 0,0,0,0
+                        on_release: Factory.infopriest().open()
+                        height: "400dp"
+                        Image:
+                            source: "images/z-priest.png"
+                            height: self.parent.height
+                            width: self.parent.width
+                            #size_hint: (None, None) #cback
+                            center_x: self.parent.center_x - (( self.parent.center_x - self.parent.x ))
+                            center_y: self.parent.center_y
+                BoxLayout:#Line9
+                    orientation: "horizontal"
+                    spacing: "20dp"
+                    Switch:
+                        id: detective
+                        height: "100dp"
+                        size_hint: 1, None
+                        disabled: False
+                        active: True
+                        on_active: root.update();root.least()
+                    Switch:
+                        id: priest
+                        height: "100dp"
+                        size_hint: 1, None
+                        disabled: False
+                        active: True
+                        on_active: root.update();root.least()
+            BoxLayout:
+                orientation: "vertical"
+                spacing: "20dp"
+                BoxLayout:#Line10
+                    orientation: "horizontal"
+                    spacing: "20dp"
+                    Button:
+                        size_hint: 1, None
+                        background_color: 0,0,0,0
+                        on_release: Factory.infoladychose().open()
+                        height: "400dp"
+                        Image:
+                            source: "images/z-redlady.png"
+                            height: self.parent.height
+                            width: self.parent.width
+                            #size_hint: (1, None)
+                            center_x: self.parent.center_x - (( self.parent.center_x - self.parent.x ))
+                            center_y: self.parent.center_y
+                    Button:
+                        size_hint: 1, None
+                        background_color: 0,0,0,0
+                        on_release: Factory.infomedium().open()
+                        height: "400dp"
+                        Image:
+                            source: "images/z-medium.png"
+                            height: self.parent.height
+                            width: self.parent.width
+                            #size_hint: (None, None) #cback
+                            center_x: self.parent.center_x - (( self.parent.center_x - self.parent.x ))
+                            center_y: self.parent.center_y
+                BoxLayout:#Line11
+                    orientation: "horizontal"
+                    spacing: "20dp"
+                    Switch:
+                        id: redlady
+                        height: "100dp"
+                        size_hint: 1, None
+                        disabled: False
+                        active: True
+                        on_active: root.update();root.least()
+                    Switch:
+                        id: medium
+                        height: "100dp"
+                        size_hint: 1, None
+                        disabled: False
+                        active: True
+                        on_active: root.update();root.least()
+            BoxLayout:#Line12
+                orientation: "horizontal"
+                spacing: "10dp"
+
+                Button:
+                    text: "        Menu"
+                    height: "100dp"
+                    size_hint: .4, None
+                    on_release: app.root.current = "Start"; root.manager.transition.direction = "right"
+                    font_name: "z-font.otf"
+                    background_color: 202/255, 0, 103/255, 1
+                    background_normal: ""
+                    Image:
+                        source: "images/z-home.png"
+                        size: "30dp", "30dp"
+                        center_x: self.parent.center_x  - ((self.parent.center_x -self.parent.x) /2 )
+                        center_y: self.parent.center_y
+
+                Button: #Infobox #Seri buraya
+                    text: "    Info"
+                    height: "100dp"
+                    size_hint: .4, None
+                    on_release: Factory.Popinfo().open()
+                    font_name: "z-font.otf"
+                    background_color: 202/255, 0, 103/255, 1
+                    background_normal: ""
+                    Image:
+                        source: "images/z-info_pink-b.png"
+                        size: "30dp", "30dp"
+                        center_x: self.parent.center_x - ((self.parent.center_x -self.parent.x) /2 )
+                        center_y: self.parent.center_y + 1
+
+               #HOW TO LIMIT THE BORDERS OF A GRIDLAYOUT
+
+<PlayerNum>:
+    name: "Number"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+    Button:
+        height: "50dp"
+        size_hint: .2, None
+        on_release: app.root.current = "Start"; root.manager.transition.direction = "right"
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .8, 'center_y':.9}
+        Image:
+            source: "images/z-home.png"
+            size: "50dp", "50dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.infoplaynum().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .2, 'center_y':.89}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+
+    Button:
+        text: "How Many Players?"
+        pos_hint: {'center_x': .5, 'center_y':.7}
+        size_hint: (.65, .15)
+        background_color: 0,0,0,0
+        font_name: "z-font.otf"
+
+    Button:
+        text: "4"
+        size_hint: (.25, .1)
+        pos_hint: {'x':.125, 'y':.45}
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        on_release:
+            root.playernum = 4; root.doit();app.root.current = "Names"
+    Button:
+        text: "5"
+        size_hint: (.25, .1)
+        pos_hint: {'x':.375, 'y':.45}
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        on_release: root.playernum = 5; root.doit();app.root.current = "Names"
+
+    Button:
+        text: "6"
+        size_hint: (.25, .1)
+        pos_hint: {'x':.625, 'y':.45}
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        on_release: root.playernum = 6; root.doit(); app.root.current = "Names"
+    Button:
+        text: "7"
+        size_hint: (.25, .1)
+        pos_hint: {'x':.125, 'y':.35}
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        on_release: root.playernum = 7;root.doit(); app.root.current = "Names"
+    Button:
+        text: "8"
+        size_hint: (.25, .1)
+        pos_hint: {'x':.375, 'y':.35}
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        on_release: root.playernum = 8;root.doit(); app.root.current = "Names"
+    Button:
+        text: "9"
+        size_hint: (.25, .1)
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        pos_hint: {'x':.625, 'y':.35}
+        on_release:
+            root.playernum = 9
+            root.doit();
+            app.root.current = "Names"
+
+
+<PlayerNames>:
+    name: "Names"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.infoplayname().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .2, 'center_y':.89}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+
+    Button: #Changed
+        text: "enter the names please\n\nmaximum 8 letters"
+        size_hint: (.7, .13)
+        background_color: 0,0,0,0
+        font_name: "z-font.otf"
+        line_height: 1.3
+        pos_hint: {'center_x': .5,'center_y': .7}
+        halign: 'center'
+        valign: 'middle'
+    TextInput:
+        id: input
+        size_hint: (.6, .07)
+        multiline: False
+        hint_text:' Player {}'.format(str(root.count))
+        on_text: root.limit()
+        font_name: "z-font.otf"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.505}
+
+    Button:
+        text: "-->"
+        size_hint: (.4, .07)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.40}
+        font_name: "z-font.otf"
+        background_normal: ''
+        background_color: 202/255, 0, 103/255, 1
+        on_release:
+            root.takeit()
+            print(root.playernumbera)
+            if root.count < root.playernumbera: root.count+=1; print(root.count)
+            else: app.root.current = "Giver"; root.auuu();root.assignroles(); root.ekstra()
+
+
+<GivePhone>:
+    name: "Giver"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+    Button:
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.popmenu().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .8, 'center_y':.9}
+        Image:
+            source: "images/z-home.png"
+            size: "50dp", "50dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.infogive().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .2, 'center_y':.89}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+    Button: # Changed
+        text: root.text
+        font_name: "z-font.otf"
+        #pos: "5dp","130dp" #self.width * 0.01, self.height * 0.2
+        pos_hint: {'center_x': 0.5, 'center_y': 0.65}
+        size_hint: (.6, .12)
+        background_color: 0,0,0,0
+        font_size: "25sp"
+
+    Button:
+        text: root.label2
+        font_name: "z-font.otf"
+        #pos: "5dp","170dp"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.725}
+        size_hint: (.4, .07)
+        background_color: 0,0,0,0
+        font_size: "17sp"
+    Button:
+        text: root.btxt
+        font_name: "z-font.otf"
+        size_hint: (.5, .07)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.40}
+        background_color: 202/255, 0, 103/255, 1
+        background_normal: ''
+        on_release:
+            root.manager.Indicator = root.variable
+            if root.s_or_pass == False and root.anotherval: root.clickedFalse(); root.manager.TF_Val = False #hmmmmmm
+            elif root.s_or_pass == True and root.variable <= root.maxval: root.clickedTrue(); app.root.current = root.viptext; root.manager.TF_Val = False; print("İndikatör: ",root.manager.Indicator)
+            elif root.variable >= root.maxval and root.manager.TF_Val == False: print("Girmeyelim artık aq"); app.root.current = "sabah"; root.testingfunc(); root.auuu()
+            else: root.clickedFalse(); print("İşe yariyor sanırım")
+
+<Voting>:
+    name: "vote"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-gallow.png"
+        size_hint: (1, 1)
+        pos_hint: {'center_x': 0.24, 'center_y':0.45}
+        allow_stretch: True
+        keep_ratio: True
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.infovote().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .2, 'center_y':.89}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+    Button:
+        id: dv
+        text: root.txt
+        size_hint: (.7, .07)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.79}
+        font_name: "z-font.otf"
+        background_color: 0,0,0,0
+    Button:
+        id: ex
+        text: root.txt2
+        size_hint: (.7, .07)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.74}
+        font_name: "z-font.otf"
+        background_color: 0,0,0,0
+
+    Button:
+        id: sifir
+        text: "" if len(root.namelist) < 1 else root.namelist[0]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "10sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 1 or root.schondead[0] == 1 or root.dis==False or root.stop  else False
+        on_release:
+            if root.rolelist[root.val - 1] == "mayor": root.election[0] += 1
+            root.election[0] += 1
+            root.goahead()
+
+
+    Button:
+        id: bir
+        text: "" if len(root.namelist) < 2 else root.namelist[1]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "10sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 2 or root.schondead[1] == 1  or root.dis==False or root.stop else False
+        on_release:
+            if root.rolelist[root.val - 1] == "mayor": root.election[1] += 1
+            root.election[1] += 1
+            root.goahead()
+
+    Button:
+        id: iki
+        text: "" if len(root.namelist) < 3 else root.namelist[2]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "10sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 3 or root.schondead[2] == 1  or  root.dis==False or root.stop else False
+        on_release:
+            if root.rolelist[root.val - 1] == "mayor": root.election[2] += 1
+            root.election[2] += 1
+            root.goahead()
+
+    Button:
+        id: uc
+        text: "" if len(root.namelist) < 4 else root.namelist[3]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "10sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 4  or root.schondead[3] == 1 or  root.dis==False or root.stop  else False
+        on_release:
+            if root.rolelist[root.val - 1] == "mayor": root.election[3] += 1
+            root.election[3] += 1
+            root.goahead()
+
+
+    Button:
+        id: dort
+        text: "" if len(root.namelist) < 5 else root.namelist[4]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "10sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 5  or root.schondead[4] == 1  or root.dis==False or root.stop else False
+        on_release:
+            if root.rolelist[root.val - 1] == "mayor": root.election[4] += 1
+            root.election[4] += 1
+            root.goahead()
+
+    Button:
+        id: bes
+        text: "" if len(root.namelist) < 6 else root.namelist[5]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "10sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 6  or root.schondead[5] == 1 or  root.dis==False or root.stop  else False
+        on_release:
+            if root.rolelist[root.val - 1] == "mayor": root.election[5] += 1
+            root.election[5] += 1
+            root.goahead()
+
+    Button:
+        id: alti
+        text: "" if len(root.namelist) < 7 else root.namelist[6]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "10sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 7  or root.schondead[6] == 1 or root.dis==False or root.stop else False
+        on_release:
+            if root.rolelist[root.val - 1] == "mayor": root.election[6] += 1
+            root.election[6] += 1
+            root.goahead()
+
+    Button:
+        id: yedi
+        text: "" if len(root.namelist) < 8 else root.namelist[7]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "10sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 8  or root.schondead[7] == 1 or root.dis==False or root.stop else False
+        on_release:
+            if root.rolelist[root.val - 1] == "mayor": root.election[7] += 1
+            root.election[7] += 1
+            root.goahead()
+
+    Button:
+        id: sekiz
+        text: "" if len(root.namelist) < 9 else root.namelist[8]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "10sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 9  or root.schondead[8] == 1 or root.dis==False or root.stop else False
+        on_release:
+            if root.rolelist[root.val - 1] == "mayor": root.election[8] += 1
+            root.election[8] += 1
+            root.goahead()
+
+    Button:
+        id: mb
+        text: "Start"
+        size_hint: (.3, .07)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.65}
+        disabled: root.dis
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        on_release:
+            root.got_it()
+            root.dis = True
+            if root.WolfDie() == True: app.root.current = "End"; root.clean_afterwards(); root.dis = False; root.stop = False
+            elif root.WolfWin() == True: app.root.current = "End"; root.clean_afterwards(); root.dis = False; root.stop = False
+            elif root.stop == True: root.auuu(); app.root.current = "Giver";root.stop = False; root.dis = False; root.clean_afterwards()
+
+<Kurt>:
+    name: "werewolf"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+    Image:
+        source: "images/z-wolf.png"
+        size_hint: (.5, .5)
+        pos_hint: {'center_x': 0.5, 'center_y':.75}
+        allow_stretch: True
+        keep_ratio: True
+
+    Button:
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.popmenu().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .86, 'center_y':.92}
+        Image:
+            source: "images/z-home.png"
+            size: "50dp", "50dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.infowolf().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .15, 'center_y':.91}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+    Button: #Degisti
+        text: "Werewolf"
+        size_hint: (.4, .1)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+        font_name: "z-font.otf"
+        background_color: 0,0,0,0
+        font_size: "25sp"
+    Button:
+        text: "Kill"
+        size_hint: (.4, .07)
+        background_color: 202/255, 0, 103/255, 1
+        background_normal: ''
+        font_name: "z-font.otf"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.40}
+        on_release:
+            app.root.current = "Kill"
+    Button:
+        text: "Skip"
+        size_hint: (.4, .07)
+        background_color: 202/255, 0, 103/255, 1
+        background_normal: ''
+        font_name: "z-font.otf"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.326}
+        on_release:
+            app.root.current = "Giver"
+
+<Medium>:
+    name: "medium"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+    Image:
+        source: "images/z-medium.png"
+        size_hint: (.5, .5)
+        pos_hint: {'center_x': 0.5, 'center_y':.75}
+    Button:
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.popmenu().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .86, 'center_y':.92}
+        Image:
+            source: "images/z-home.png"
+            size: "50dp", "50dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.infomedium().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .15, 'center_y':.91}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+    Button:
+        text: "Medium"
+        size_hint: (.5, .1)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+        font_name: "z-font.otf"
+        background_color: 0,0,0,0
+        font_size: "25sp"
+    Button:
+        text: "Revive"
+        size_hint: (.4, .07)
+        background_color: 202/255, 0, 103/255, 1
+        background_normal: ''
+        font_name: "z-font.otf"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.40}
+        on_release:
+            if root.manager.SchonUsed[root.manager.Indicator - 1] == 1: Factory.infoabilityerror().open()
+            elif root.manager.SchonUsed[root.manager.Indicator - 1] == 0: app.root.current = "revive"
+    Button:
+        text: "Skip"
+        size_hint: (.4, .07)
+        background_color: 202/255, 0, 103/255, 1
+        background_normal: ''
+        font_name: "z-font.otf"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.326}
+        on_release:
+            app.root.current = "Giver"
+
+<Gozcu>:
+    name: "seer"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+    Image:
+        source: "images/z-seer.png"
+        size_hint: (.5, .5)
+        pos_hint: {'center_x': 0.5, 'center_y':.75}
+        allow_stretch: True
+        keep_ratio: True
+    Button:
+        height: "50dp"
+        size_hint: .2, None
+        on_release:Factory.popmenu().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .86, 'center_y':.92}
+        Image:
+            source: "images/z-home.png"
+            size: "50dp", "50dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.infoseer().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .15, 'center_y':.91}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+    Button:
+        text: "Seer"
+        size_hint: (.5, .1)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+        font_name: "z-font.otf"
+        background_color: 0,0,0,0
+        font_size: "25sp"
+    Button:
+        text: "Spy On"
+        size_hint: (.4, .07)
+        background_color: 202/255, 0, 103/255, 1
+        pos_hint: {'center_x': 0.5, 'center_y': 0.40}
+        background_normal: ''
+        font_name: "z-font.otf"
+        on_release:
+            app.root.current = "Gozle"
+    Button:
+        text: "Skip"
+        size_hint: (.4, .07)
+        background_color: 202/255, 0, 103/255, 1
+        background_normal: ''
+        font_name: "z-font.otf"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.326}
+        on_release:
+            app.root.current = "Giver"
+
+<Cadi>:
+    name: "witch"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+    Image:
+        source: "images/z-witch.png"
+        size_hint: (.5, .5)
+        pos_hint: {'center_x': 0.5, 'center_y':.75}
+        allow_stretch: True
+        keep_ratio: True
+    Button:
+        height: "50dp"
+        size_hint: .2, None
+        on_release:Factory.popmenu().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .86, 'center_y':.92}
+        Image:
+            source: "images/z-home.png"
+            size: "50dp", "50dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.infowitch().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .15, 'center_y':.91}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+    Button:
+        text: "Witch"
+        size_hint: (.5, .1)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+        font_name: "z-font.otf"
+        background_color: 0,0,0,0
+        font_size: "25sp"
+    Button:
+        text: "Poison"
+        size_hint: (.4, .07)
+        background_normal: ''
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        pos_hint: {'center_x': 0.5, 'center_y': 0.41}
+        on_release:
+            app.root.current = "Kill"
+
+    Button:
+        text: "Protect"
+        size_hint: (.4, .07)
+        background_color: 202/255, 0, 103/255, 1
+        background_normal: ''
+        font_name: "z-font.otf"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.336}
+        on_release:
+            app.root.current = "Heal"
+    Button:
+        text: "Skip"
+        size_hint: (.4, .07)
+        background_color: 202/255, 0, 103/255, 1
+        background_normal: ''
+        font_name: "z-font.otf"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.2625}
+        on_release:
+            app.root.current = "Giver"
+
+<Koylu>:
+    name: "villager"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+    Image:
+        source: "images/z-villager.png"
+        size_hint: (0.5, .5)
+        pos_hint: {'center_x': 0.5, 'center_y':.75}
+        allow_stretch: True
+        keep_ratio: True
+    Button:
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.popmenu().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .86, 'center_y':.92}
+        Image:
+            source: "images/z-home.png"
+            size: "50dp", "50dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.infovillager().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .15, 'center_y':.91}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+    Button:
+        text: "Villager"
+        size_hint: (.5, .1)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+        font_name: "z-font.otf"
+        background_color: 0,0,0,0
+        font_size: "25sp"
+    Button:
+        text: "Continue"
+        size_hint: (.4, .07)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.40}
+        background_color: 202/255, 0, 103/255, 1
+        background_normal: ''
+        font_name: "z-font.otf"
+
+        on_release:
+            app.root.current = "Giver"
+
+<Detective>:
+    name: "detective"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+    Image:
+        source: "images/z-detective.png"
+        size_hint: (0.5, .5)
+        pos_hint: {'center_x': 0.5, 'center_y':.75}
+    Button:
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.popmenu().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .86, 'center_y':.92}
+        Image:
+            source: "images/z-home.png"
+            size: "50dp", "50dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.infodetective().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .15, 'center_y':.91}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+    Button:
+        text: "Detective"
+        size_hint: (.5, .1)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+        font_name: "z-font.otf"
+        background_color: 0,0,0,0
+        font_size: "25sp"
+    Button:
+        text: "Spy On"
+        size_hint: (.4, .07)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.40}
+        background_color: 202/255, 0, 103/255, 1
+        background_normal: ''
+        font_name: "z-font.otf"
+
+        on_release:
+            app.root.current = "dedektif"
+    Button:
+        text: "Skip"
+        size_hint: (.4, .07)
+        background_color: 202/255, 0, 103/255, 1
+        background_normal: ''
+        font_name: "z-font.otf"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.326}
+        on_release:
+            app.root.current = "Giver"
+<Prezident>:
+    name: "mayor"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+    Image:
+        source: "images/z-mayor.png"
+        size_hint: (0.5, .5)
+        pos_hint: {'center_x': 0.5, 'center_y':.75}
+    Button:
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.popmenu().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .86, 'center_y':.92}
+        Image:
+            source: "images/z-home.png"
+            size: "50dp", "50dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.infopresident().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .15, 'center_y':.91}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+    Button:
+        text: "Mayor"
+        size_hint: (.5, .1)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+        font_name: "z-font.otf"
+        background_color: 0,0,0,0
+        font_size: "25sp"
+    Button:
+        text: "Continue"
+        size_hint: (.4, .07)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.40}
+        background_color: 202/255, 0, 103/255, 1
+        background_normal: ''
+        font_name: "z-font.otf"
+
+        on_release:
+            app.root.current = "Giver"
+
+<Papaz>:
+    name: "priest"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+    Image:
+        source: "images/z-priest.png"
+        size_hint: (0.5, .5)
+        pos_hint: {'center_x': 0.5, 'center_y':.75}
+    Button:
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.popmenu().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .86, 'center_y':.92}
+        Image:
+            source: "images/z-home.png"
+            size: "50dp", "50dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.infopriest().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .15, 'center_y':.91}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+    Button:
+        text: "Priest"
+        size_hint: (.5, .1)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+        font_name: "z-font.otf"
+        background_color: 0,0,0,0
+        font_size: "25sp"
+    Button:
+        text: "Holy Water"
+        size_hint: (.4, .07)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.40}
+        background_color: 202/255, 0, 103/255, 1
+        background_normal: ''
+        font_name: "z-font.otf"
+
+        on_release:
+            app.root.current = "holywater" # to change
+
+    Button:
+        text: "Skip"
+        size_hint: (.4, .07)
+        background_color: 202/255, 0, 103/255, 1
+        background_normal: ''
+        font_name: "z-font.otf"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.326}
+        on_release:
+            app.root.current = "Giver"
+
+<RedLady>:
+    name: "red lady"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+    Image:
+        source: "images/z-redlady.png"
+        size_hint: (0.5, .5)
+        pos_hint: {'center_x': 0.5, 'center_y':.75}
+    Button:
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.popmenu().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .86, 'center_y':.92}
+        Image:
+            source: "images/z-home.png"
+            size: "50dp", "50dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.infoladychose().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .15, 'center_y':.91}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+    Button:
+        text: "Red Lady"
+        size_hint: (.5, .1)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+        font_name: "z-font.otf"
+        background_color: 0,0,0,0
+        font_size: "25sp"
+    Button:
+        text: "Visit"
+        size_hint: (.4, .07)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.40}
+        background_color: 202/255, 0, 103/255, 1
+        background_normal: ''
+        font_name: "z-font.otf"
+
+        on_release:
+            app.root.current = "ladychose" # to change
+
+    Button:
+        text: "Skip"
+        size_hint: (.4, .07)
+        background_color: 202/255, 0, 103/255, 1
+        background_normal: ''
+        font_name: "z-font.otf"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.326}
+        on_release:
+            app.root.current = "Giver"
+
+<Doctor>:
+    name: "doctor"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+    Image:
+        source: "images/z-doctor.png"
+        size_hint: (0.5, .5)
+        pos_hint: {'center_x': 0.5, 'center_y':.75}
+    Button:
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.popmenu().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .86, 'center_y':.92}
+        Image:
+            source: "images/z-home.png"
+            size: "50dp", "50dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.infodoc().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .15, 'center_y':.91}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+    Button:
+        text: "Doctor"
+        size_hint: (.5, .1)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+        font_name: "z-font.otf"
+        background_color: 0,0,0,0
+        font_size: "25sp"
+    Button:
+        text: "Heal"
+        size_hint: (.4, .07)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.40}
+        background_color: 202/255, 0, 103/255, 1
+        background_normal: ''
+        font_name: "z-font.otf"
+
+        on_release:
+            app.root.current = "docheal"
+    Button:
+        text: "Skip"
+        size_hint: (.4, .07)
+        background_color: 202/255, 0, 103/255, 1
+        background_normal: ''
+        font_name: "z-font.otf"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.326}
+        on_release:
+            root.skipped()
+            app.root.current = "Giver"
+
+<Sabah>:
+    name: "sabah"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+    Button:
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.popmenu().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .8, 'center_y':.9}
+        Image:
+            source: "images/z-home.png"
+            size: "50dp", "50dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.infomorning().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .2, 'center_y':.89}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+
+    Button: #sp olmadan Textler bunlar
+        text: root.text
+        size_hint: (.7, .1)
+        font_name: "z-font.otf"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.71}
+        background_color: 0,0,0,0
+        font_size: "21sp"
+    Button: #sp olmadan
+        text: root.anothertext
+        size_hint: (.7, .1)
+        font_name: "z-font.otf"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.63}
+        background_color: 0,0,0,0
+        halign: 'center'
+        valign: 'middle'
+        font_size: "17sp"
+
+    Button:
+        text: "Proceed"
+        size_hint: (.4, .07)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.40}
+        background_normal: ''
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        on_release:
+            if root.temp == True: root.display()
+            elif root.WolfDie() == True: app.root.current = "End"; root.anothertext = ""; root.text = "IT'S MORNING";root.stop=False;root.temp = True
+            elif root.WolfWin() == True: app.root.current = "End"; root.anothertext = ""; root.text = "IT'S MORNING";root.temp = True
+            elif root.temp == False and root.comebackers == False:  app.root.current = "vote"; root.text = "IT'S MORNING"; root.anothertext = ""; root.temp = True
+            else: root.any_comeback()
+
+<End>:
+    name: "End"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+
+    Button: #gelsene uglum
+        id: top
+        text: root.top
+        pos_hint: {'center_x': 0.5, 'center_y': 0.82}
+        size_hint: (.6, .07)
+        font_name: "z-font.otf"
+        background_color: 0,0,0,0
+        font_size: "21sp"
+
+
+    Button: #sp olmadan
+        id: mylabel
+        text: "The Game has ended"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.72}
+        size_hint: (.6, .07)
+        font_name: "z-font.otf"
+        background_color: 0,0,0,0
+        font_size: "18sp"
+
+
+    Button:
+        id: mylabel2
+        text: ""
+        pos_hint: {'center_x': 0.5, 'center_y': 0.62}
+        size_hint: (.6, .07)
+        font_name: "z-font.otf"
+        background_color: 0,0,0,0
+        font_size: "18sp"
+
+    Button:
+        text: "Continue"
+        size_hint: (.6, .07)
+        background_normal: ''
+        pos_hint: {'center_x': 0.5, 'center_y': 0.40}
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        on_release:
+            if root.val == False: root.dsply(); root.who(); self.text = "Turn Back to Menu"; root.val = True
+            elif root.val == True:  app.root.current = "Start"; root.bton(); root.top = ""; root.val = False; root.wws =""
+
+
+<HolyWater>:
+    name: "holywater"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.infokill().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .2, 'center_y':.89}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+    Button:
+        text: "Throw Holy Water at"
+        size_hint: (.7, .07)
+        font_name: "z-font.otf"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.76}
+        background_color: 0,0,0,0
+
+    Button:
+        id: sifir
+        text: "" if len(root.namelist) < 1 else root.namelist[0]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 1 or root.schondead[0] == 1 or root.dis==False or root.dislist[0] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(0)
+
+
+
+    Button:
+        id: bir
+        text: "" if len(root.namelist) < 2 else root.namelist[1]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 2 or root.schondead[1] == 1  or root.dis==False or root.dislist[1] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(1)
+
+
+    Button:
+        id: iki
+        text: "" if len(root.namelist) < 3 else root.namelist[2]
+        size_hint: (.3,.1)
+        font_size: "14sp"
+        pos_hint: {'x':.65, 'y':.45}
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 3 or root.schondead[2] == 1  or  root.dis==False or root.dislist[2] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(2)
+
+
+    Button:
+        id: uc
+        text: "" if len(root.namelist) < 4 else root.namelist[3]
+        size_hint: (.3,.1)
+        font_size: "14sp"
+        pos_hint: {'x':.05, 'y':.35}
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 4  or root.schondead[3] == 1 or  root.dis==False or root.dislist[3] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(3)
+
+
+
+    Button:
+        id: dort
+        text: "" if len(root.namelist) < 5 else root.namelist[4]
+        size_hint: (.3,.1)
+        font_size: "14sp"
+        pos_hint: {'x':.35, 'y':.35}
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 5  or root.schondead[4] == 1  or root.dis==False or root.dislist[4] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(4)
+
+
+    Button:
+        id: bes
+        text: "" if len(root.namelist) < 6 else root.namelist[5]
+        size_hint: (.3,.1)
+        font_size: "14sp"
+        pos_hint: {'x':.65, 'y':.35}
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 6  or root.schondead[5] == 1 or  root.dis==False or root.dislist[5] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(5)
+
+
+    Button:
+        id: alti
+        text: "" if len(root.namelist) < 7 else root.namelist[6]
+        size_hint: (.3,.1)
+        font_size: "14sp"
+        pos_hint: {'x':.05, 'y':.25}
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 7  or root.schondead[6] == 1 or root.dis==False or root.dislist[6] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(6)
+
+
+    Button:
+        id: yedi
+        text: "" if len(root.namelist) < 8 else root.namelist[7]
+        size_hint: (.3,.1)
+        font_size: "14sp"
+        pos_hint: {'x':.35, 'y':.25}
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 8  or root.schondead[7] == 1 or root.dis==False or root.dislist[7] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(7)
+
+
+    Button:
+        id: sekiz
+        text: "" if len(root.namelist) < 9 else root.namelist[8]
+        size_hint: (.3,.1)
+        font_size: "14sp"
+        pos_hint: {'x':.65, 'y':.25}
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 9  or root.schondead[8] == 1 or root.dis==False or root.dislist[8] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(8)
+
+
+    Button:
+        text: "Got It"
+        size_hint: (.3, .07)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.65}
+        disabled: root.dis
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        on_release:
+            root.got_it()
+            root.fill_before()
+            root.dis = True
+
+<Kill>:
+    name: "Kill"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.infokill().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .2, 'center_y':.89}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+    Button: #sp olmadan
+        text: "Kill one person"
+        size_hint: (.7, .1)
+        font_name: "z-font.otf"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.76}
+        background_color: 0,0,0,0
+
+    Button:
+        id: sifir
+        text: "" if len(root.namelist) < 1 else root.namelist[0]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 1 or root.schondead[0] == 1 or root.dis==False or root.dislist[0] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            print(root.namelist[0] + " Öldü")
+            root.dyinglist[0] = 1
+            root.goahead()
+
+
+
+    Button:
+        id: bir
+        text: "" if len(root.namelist) < 2 else root.namelist[1]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 2 or root.schondead[1] == 1  or root.dis==False or root.dislist[1] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.dyinglist[1] = 1
+            root.goahead()
+
+
+    Button:
+        id: iki
+        text: "" if len(root.namelist) < 3 else root.namelist[2]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp" #Oldu mu acaba
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 3 or root.schondead[2] == 1  or  root.dis==False or root.dislist[2] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.dyinglist[2] = 1
+            root.goahead()
+
+
+    Button:
+        id: uc
+        text: "" if len(root.namelist) < 4 else root.namelist[3]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 4  or root.schondead[3] == 1 or  root.dis==False or root.dislist[3] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.dyinglist[3] = 1
+            root.goahead()
+
+
+
+    Button:
+        id: dort
+        text: "" if len(root.namelist) < 5 else root.namelist[4]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 5  or root.schondead[4] == 1  or root.dis==False or root.dislist[4] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.dyinglist[4] = 1
+            root.goahead()
+
+
+    Button:
+        id: bes
+        text: "" if len(root.namelist) < 6 else root.namelist[5]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 6  or root.schondead[5] == 1 or  root.dis==False or root.dislist[5] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.dyinglist[5] = 1
+            root.goahead()
+
+
+    Button:
+        id: alti
+        text: "" if len(root.namelist) < 7 else root.namelist[6]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 7  or root.schondead[6] == 1 or root.dis==False or root.dislist[6] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.dyinglist[6] = 1
+            root.goahead()
+
+
+    Button:
+        id: yedi
+        text: "" if len(root.namelist) < 8 else root.namelist[7]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 8  or root.schondead[7] == 1 or root.dis==False or root.dislist[7] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.dyinglist[7] = 1
+            root.goahead()
+
+
+    Button:
+        id: sekiz
+        text: "" if len(root.namelist) < 9 else root.namelist[8]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 9  or root.schondead[8] == 1 or root.dis==False or root.dislist[8] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.dyinglist[8] = 1
+            root.goahead()
+
+
+    Button:
+        text: "Got It"
+        size_hint: (.3, .07)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.65}
+        disabled: root.dis
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        on_release:
+            root.got_it()
+            root.fill_before()
+            root.dis = True
+
+#dirilt
+<Revive>:
+    name: "revive"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.infomedium().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .2, 'center_y':.89}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+    Button: #sp olmadan
+        text: "Revive one person"
+        size_hint: (.7, .1)
+        font_name: "z-font.otf"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.76}
+        background_color: 0,0,0,0
+
+    Button:
+        id: sifir
+        text: "" if len(root.namelist) < 1 else root.namelist[0]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 1 or root.schondead[0] == 0 or root.dis==False or root.dislist[0] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(0)
+            root.manager.SchonUsed = root.med_using_list.copy()
+
+
+
+
+    Button:
+        id: bir
+        text: "" if len(root.namelist) < 2 else root.namelist[1]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 2 or root.schondead[1] == 0  or root.dis==False or root.dislist[1] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(1)
+            root.manager.SchonUsed = root.med_using_list.copy()
+
+
+    Button:
+        id: iki
+        text: "" if len(root.namelist) < 3 else root.namelist[2]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 3 or root.schondead[2] == 0  or  root.dis==False or root.dislist[2] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(2)
+            root.manager.SchonUsed = root.med_using_list.copy()
+
+
+    Button:
+        id: uc
+        text: "" if len(root.namelist) < 4 else root.namelist[3]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 4  or root.schondead[3] == 0 or  root.dis==False or root.dislist[3] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(3)
+            root.manager.SchonUsed = root.med_using_list.copy()
+
+
+
+    Button:
+        id: dort
+        text: "" if len(root.namelist) < 5 else root.namelist[4]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 5  or root.schondead[4] == 0  or root.dis==False or root.dislist[4] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(4)
+            root.manager.SchonUsed = root.med_using_list.copy()
+
+
+    Button:
+        id: bes
+        text: "" if len(root.namelist) < 6 else root.namelist[5]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 6  or root.schondead[5] == 0 or  root.dis==False or root.dislist[5] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(5)
+            root.manager.SchonUsed = root.med_using_list.copy()
+
+
+    Button:
+        id: alti
+        text: "" if len(root.namelist) < 7 else root.namelist[6]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 7  or root.schondead[6] == 0 or root.dis==False or root.dislist[6] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(6)
+            root.manager.SchonUsed = root.med_using_list.copy()
+
+
+    Button:
+        id: yedi
+        text: "" if len(root.namelist) < 8 else root.namelist[7]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 8  or root.schondead[7] == 0 or root.dis==False or root.dislist[7] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(7)
+            root.manager.SchonUsed = root.med_using_list.copy()
+
+
+    Button:
+        id: sekiz
+        text: "" if len(root.namelist) < 9 else root.namelist[8]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 9  or root.schondead[8] == 0 or root.dis==False or root.dislist[8] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(8)
+            root.manager.SchonUsed = root.med_using_list.copy()
+
+
+    Button:
+        id: gi
+        text: "Got It"
+        size_hint: (.3, .07)
+        pos_hint: {'center_x': 0.35, 'center_y': 0.65}
+        disabled: root.dis
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        on_release:
+            root.got_it()
+            root.fill_before()
+            root.dis = True
+    Button:
+        text: "Skip"
+        size_hint: (.3, .07)
+        pos_hint: {'center_x': 0.65, 'center_y': 0.65}
+        disabled: False
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        on_release:
+            root.dis = False
+            #root.dis = True
+            root.clean_afterwards()
+            app.root.current = "Giver"
+
+<Heal>:
+    name: "Heal"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.infoheal().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .2, 'center_y':.89}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+    Button: #sp olmadan
+        text: "Protect one person"
+        size_hint: (.7, .1)
+        font_name: "z-font.otf"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.76}
+        background_color: 0,0,0,0
+
+    Button:
+        id: sifir
+        text: "" if len(root.namelist) < 1 else root.namelist[0]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 1 or root.schondead[0] == 1 or root.dis==False or root.dislist[0] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.healinglist[0] = 1
+            root.goahead()
+
+
+
+    Button:
+        id: bir
+        text: "" if len(root.namelist) < 2 else root.namelist[1]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 2 or root.schondead[1] == 1  or root.dis==False or root.dislist[1] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.healinglist[1] = 1
+            root.goahead()
+
+
+    Button:
+        id: iki
+        text: "" if len(root.namelist) < 3 else root.namelist[2]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 3 or root.schondead[2] == 1  or  root.dis==False or root.dislist[2] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.healinglist[2] = 1
+            root.goahead()
+
+
+    Button:
+        id: uc
+        text: "" if len(root.namelist) < 4 else root.namelist[3]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 4  or root.schondead[3] == 1 or  root.dis==False or root.dislist[3] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.healinglist[3] = 1
+            root.goahead()
+
+
+
+    Button:
+        id: dort
+        text: "" if len(root.namelist) < 5 else root.namelist[4]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 5  or root.schondead[4] == 1  or root.dis==False or root.dislist[4] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.healinglist[4] = 1
+            root.goahead()
+
+
+    Button:
+        id: bes
+        text: "" if len(root.namelist) < 6 else root.namelist[5]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 6  or root.schondead[5] == 1 or  root.dis==False or root.dislist[5] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.healinglist[5] = 1
+            root.goahead()
+
+
+    Button:
+        id: alti
+        text: "" if len(root.namelist) < 7 else root.namelist[6]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 7  or root.schondead[6] == 1 or root.dis==False or root.dislist[6] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.healinglist[6] = 1
+            root.goahead()
+
+
+    Button:
+        id: yedi
+        text: "" if len(root.namelist) < 8 else root.namelist[7]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 8  or root.schondead[7] == 1 or root.dis==False or root.dislist[7] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.healinglist[7] = 1
+            root.goahead()
+
+
+    Button:
+        id: sekiz
+        text: "" if len(root.namelist) < 9 else root.namelist[8]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.25}
+        font_size: "14sp"
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 9  or root.schondead[8] == 1 or root.dis==False or root.dislist[8] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.healinglist[8] = 1
+            root.goahead()
+
+
+    Button:
+        text: "Got It"
+        size_hint: (.3, .07)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.65}
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: root.dis
+        on_release:
+            root.got_it()
+            root.fill_before()
+            root.dis = True
+
+<LadyChose>:
+    name: "ladychose"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.infoladychose().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .2, 'center_y':.89}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+    Button: #sp olmadan
+        text: "Visit one person"
+        size_hint: (.7, .1)
+        font_name: "z-font.otf"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.76}
+        background_color: 0,0,0,0
+
+    Button:
+        id: sifir
+        text: "" if len(root.namelist) < 1 else root.namelist[0]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 1 or root.schondead[0] == 1 or root.dis==False or root.dislist[0] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(0)
+
+
+
+    Button:
+        id: bir
+        text: "" if len(root.namelist) < 2 else root.namelist[1]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 2 or root.schondead[1] == 1  or root.dis==False or root.dislist[1] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(1)
+
+
+    Button:
+        id: iki
+        text: "" if len(root.namelist) < 3 else root.namelist[2]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 3 or root.schondead[2] == 1  or  root.dis==False or root.dislist[2] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(2)
+
+
+    Button:
+        id: uc
+        text: "" if len(root.namelist) < 4 else root.namelist[3]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 4  or root.schondead[3] == 1 or  root.dis==False or root.dislist[3] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(3)
+
+
+
+    Button:
+        id: dort
+        text: "" if len(root.namelist) < 5 else root.namelist[4]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 5  or root.schondead[4] == 1  or root.dis==False or root.dislist[4] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(4)
+
+
+    Button:
+        id: bes
+        text: "" if len(root.namelist) < 6 else root.namelist[5]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 6  or root.schondead[5] == 1 or  root.dis==False or root.dislist[5] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(5)
+
+
+    Button:
+        id: alti
+        text: "" if len(root.namelist) < 7 else root.namelist[6]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 7  or root.schondead[6] == 1 or root.dis==False or root.dislist[6] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(6)
+
+
+    Button:
+        id: yedi
+        text: "" if len(root.namelist) < 8 else root.namelist[7]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 8  or root.schondead[7] == 1 or root.dis==False or root.dislist[7] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(7)
+
+
+    Button:
+        id: sekiz
+        text: "" if len(root.namelist) < 9 else root.namelist[8]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 9  or root.schondead[8] == 1 or root.dis==False or root.dislist[8] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.goahead(8)
+
+
+    Button:
+        text: "Got It"
+        size_hint: (.3, .07)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.65}
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: root.dis
+        on_release:
+            root.got_it()
+            root.fill_before()
+            root.dis = True
+
+<Dedektif>:
+    name: "dedektif"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+
+        on_release: Factory.infodetect().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .2, 'center_y':.89}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+    Button: #sp olmadan
+        id: above
+        text: "Choose two players and see,"
+        size_hint: (.7, .05)
+        font_name: "z-font.otf"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+        background_color: 0,0,0,0
+    Button: #sp olmadan
+        id: below
+        text: "if they belong the same team"
+        size_hint: (.7,.05)
+        font_name: "z-font.otf"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.75}
+        background_color: 0,0,0,0
+
+    Button:
+        id: sifir
+        text: "" if len(root.namelist) < 1 else root.namelist[0]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 1 or root.schondead[0] == 1 or root.dis==False or root.dislist[0] == True  else False
+        on_release:
+            self.disabled = True
+            root.off(0)
+            root.goahead()
+
+
+    Button:
+        id: bir
+        text: "" if len(root.namelist) < 2 else root.namelist[1]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 2 or root.schondead[1] == 1  or root.dis==False or root.dislist[1] == True else False
+        on_release:
+            self.disabled = True
+            root.off(1)
+            root.goahead()
+
+
+    Button:
+        id: iki
+        text: "" if len(root.namelist) < 3 else root.namelist[2]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 3 or root.schondead[2] == 1  or  root.dis==False or root.dislist[2] == True else False
+        on_release:
+            self.disabled = True
+            root.off(2)
+            root.goahead()
+
+
+    Button:
+        id: uc
+        text: "" if len(root.namelist) < 4 else root.namelist[3]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 4  or root.schondead[3] == 1 or  root.dis==False or root.dislist[3] == True  else False
+        on_release:
+            self.disabled = True
+            root.off(3)
+            root.goahead()
+
+
+    Button:
+        id: dort
+        text: "" if len(root.namelist) < 5 else root.namelist[4]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 5  or root.schondead[4] == 1  or root.dis==False or root.dislist[4] == True else False
+        on_release:
+            self.disabled = True
+            root.off(4)
+            root.goahead()
+
+
+    Button:
+        id: bes
+        text: "" if len(root.namelist) < 6 else root.namelist[5]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 6  or root.schondead[5] == 1 or  root.dis==False or root.dislist[5] == True  else False
+        on_release:
+            self.disabled = True
+            root.off(5)
+            root.goahead()
+
+    Button:
+        id: alti
+        text: "" if len(root.namelist) < 7 else root.namelist[6]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 7  or root.schondead[6] == 1 or root.dis==False or root.dislist[6] == True  else False
+        on_release:
+            self.disabled = True
+            root.off(6)
+            root.goahead()
+
+    Button:
+        id: yedi
+        text: "" if len(root.namelist) < 8 else root.namelist[7]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 8  or root.schondead[7] == 1 or root.dis==False or root.dislist[7] == True  else False
+        on_release:
+            self.disabled = True
+            root.off(7)
+            root.goahead()
+
+    Button:
+        id: sekiz
+        text: "" if len(root.namelist)< 9 else root.namelist[8]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 9  or root.schondead[8] == 1 or root.dis==False or root.dislist[8] == True else False
+        on_release:
+            self.disabled = True
+            root.off(8)
+            root.goahead()
+
+    Button: #dedektifin butonu
+        text: "Got It"
+        size_hint: (.3, .07)
+        pos_hint: {'center_x': 0.35, 'center_y': 0.65}
+        disabled: root.dis
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        on_release:
+            if root.anotherlove: root.anotherlove = False; app.root.current = "Giver";root.clear(); root.clean_afterwards()
+            else: root.got_it(); root.dis = True; root.fill_before()
+
+    Button:
+        text: "Skip"
+        size_hint: (.3, .07)
+        pos_hint: {'center_x': 0.65, 'center_y': 0.65}
+        disabled: False
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        on_release:
+            root.anotherlove = False
+            app.root.current = "Giver"
+            root.clear()
+            root.clean_afterwards()
+            root.dis = False
+
+<Gozle>:
+    name: "Gozle"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+
+        on_release: Factory.infospy().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .2, 'center_y':.89}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+    Button: #sp olmadan
+        id: lemmetry
+        text: "See the role of a player"
+        font_name: "z-font.otf"
+        size_hint: (.7, .1)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.76}
+        background_color:0,0,0,0
+
+
+    Button:
+        id: sifir
+        text: "" if len(root.namelist) < 1 else root.namelist[0]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 1 or root.schondead[0] == 1 or root.dis==False or root.dislist[0] == True  else False
+        on_release:
+            self.text = root.Rollen[0]
+            root.off(0)
+            root.goahead()
+
+
+    Button:
+        id: bir
+        text: "" if len(root.namelist) < 2 else root.namelist[1]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 2 or root.schondead[1] == 1  or root.dis==False or root.dislist[1] == True else False
+        on_release:
+            self.text = root.Rollen[1]
+            root.off(1)
+            root.goahead()
+
+
+    Button:
+        id: iki
+        text: "" if len(root.namelist) < 3 else root.namelist[2]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.45}
+        font_size: "14sp"
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 3 or root.schondead[2] == 1  or  root.dis==False or root.dislist[2] == True else False
+        on_release:
+            self.text = root.Rollen[2]
+            root.off(2)
+            root.goahead()
+
+
+    Button:
+        id: uc
+        text: "" if len(root.namelist) < 4 else root.namelist[3]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 4  or root.schondead[3] == 1 or  root.dis==False or root.dislist[3] == True  else False
+        on_release:
+            self.text = root.Rollen[3]
+            root.off(3)
+            root.goahead()
+
+
+    Button:
+        id: dort
+        text: "" if len(root.namelist) < 5 else root.namelist[4]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 5  or root.schondead[4] == 1  or root.dis==False or root.dislist[4] == True else False
+        on_release:
+            self.text = root.Rollen[4]
+            root.off(4)
+            root.goahead()
+
+
+    Button:
+        id: bes
+        text: "" if len(root.namelist) < 6 else root.namelist[5]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 6  or root.schondead[5] == 1 or  root.dis==False or root.dislist[5] == True  else False
+        on_release:
+            self.text = root.Rollen[5]
+            root.off(5)
+            root.goahead()
+
+    Button:
+        id: alti
+        text: "" if len(root.namelist) < 7 else root.namelist[6]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 7  or root.schondead[6] == 1 or root.dis==False or root.dislist[6] == True  else False
+        on_release:
+            self.text = root.Rollen[6]
+            root.off(6)
+            root.goahead()
+
+    Button:
+        id: yedi
+        text: "" if len(root.namelist) < 8 else root.namelist[7]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 8  or root.schondead[7] == 1 or root.dis==False or root.dislist[7] == True  else False
+        on_release:
+            self.text = root.Rollen[7]
+            root.off(7)
+            root.goahead()
+
+    Button:
+        id: sekiz
+        text: "" if len(root.namelist)< 9 else root.namelist[8]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 9  or root.schondead[8] == 1 or root.dis==False or root.dislist[8] == True else False
+        on_release:
+            self.text = root.Rollen[8]
+            root.off(8)
+            root.goahead()
+
+    Button:
+        text: "Got It"
+        size_hint: (.3, .07)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.65}
+        disabled: root.dis
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        on_release:
+            if root.anotherlove: root.anotherlove = False; app.root.current = "Giver";root.clear(); root.shit(); root.clean_afterwards()
+            else: root.got_it(); root.dis = True; root.fill_before()
+
+<HealDoc>:
+    name: "docheal"
+    canvas.before:
+        Color:
+            rgba: (50/255,50/255,135/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "images/z-night2.png"
+    Image:
+        source: "images/z-valley.png"
+        size_hint: (1, .3)
+        pos_hint: {'center_x': 0.5, 'center_y':0.1}
+        allow_stretch: True
+        keep_ratio: False
+
+    Button: #Infobox
+        text: ""
+        height: "50dp"
+        size_hint: .2, None
+        on_release: Factory.infoheal().open()
+        font_name: "z-font.otf"
+        background_color: 1/255, 5/255, 42/255, 1
+        background_normal: ""
+        pos_hint: {'center_x': .2, 'center_y':.89}
+        Image:
+            source: "images/z-info_blue.png"
+            size: "40dp", "40dp"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y + 1
+    Button:
+        text: "Protect one person. You\ncan't choose the same\nperson consecutively"
+        size_hint: (.7, .1)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.76}
+        font_name: "z-font.otf"
+        line_height: 1.4
+        halign: 'center'
+        valign: 'middle'
+        background_color:0,0,0,0
+
+
+
+    Button:
+        id: sifir
+        text: "" if len(root.namelist) < 1 else root.namelist[0]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 1 or root.schondead[0] == 1 or root.dis==False or root.dislist[0] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.healinglist[0] = 1
+            root.goahead(0)
+
+
+
+    Button:
+        id: bir
+        text: "" if len(root.namelist) < 2 else root.namelist[1]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 2 or root.schondead[1] == 1  or root.dis==False or root.dislist[1] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.healinglist[1] = 1
+            root.goahead(1)
+
+
+    Button:
+        id: iki
+        text: "" if len(root.namelist) < 3 else root.namelist[2]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.45}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 3 or root.schondead[2] == 1  or  root.dis==False or root.dislist[2] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.healinglist[2] = 1
+            root.goahead(2)
+
+
+    Button:
+        id: uc
+        text: "" if len(root.namelist) < 4 else root.namelist[3]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 4  or root.schondead[3] == 1 or  root.dis==False or root.dislist[3] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.healinglist[3] = 1
+            root.goahead(3)
+
+
+
+    Button:
+        id: dort
+        text: "" if len(root.namelist) < 5 else root.namelist[4]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 5  or root.schondead[4] == 1  or root.dis==False or root.dislist[4] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.healinglist[4] = 1
+            root.goahead(4)
+
+
+    Button:
+        id: bes
+        text: "" if len(root.namelist) < 6 else root.namelist[5]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.35}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 6  or root.schondead[5] == 1 or  root.dis==False or root.dislist[5] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.healinglist[5] = 1
+            root.goahead(5)
+
+
+    Button:
+        id: alti
+        text: "" if len(root.namelist) < 7 else root.namelist[6]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.05, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 7  or root.schondead[6] == 1 or root.dis==False or root.dislist[6] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.healinglist[6] = 1
+            root.goahead(6)
+
+
+    Button:
+        id: yedi
+        text: "" if len(root.namelist) < 8 else root.namelist[7]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.35, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 8  or root.schondead[7] == 1 or root.dis==False or root.dislist[7] == True  else False
+        on_release:
+            app.root.current = "Giver"
+            root.healinglist[7] = 1
+            root.goahead(7)
+
+
+    Button:
+        id: sekiz
+        text: "" if len(root.namelist) < 9 else root.namelist[8]
+        size_hint: (.3,.1)
+        pos_hint: {'x':.65, 'y':.25}
+        font_name: "z-font.otf"
+        font_size: "14sp"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: True if len(root.namelist) < 9  or root.schondead[8] == 1 or root.dis==False or root.dislist[8] == True else False
+        on_release:
+            app.root.current = "Giver"
+            root.healinglist[8] = 1
+            root.goahead(8)
+
+
+    Button:
+        text: "Got It"
+        size_hint: (.3, .07)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.65}
+        font_name: "z-font.otf"
+        background_color: 202/255, 0, 103/255, 1
+        disabled: root.dis
+        on_release:
+            root.got_it()
+            root.fill_before()
+            root.dis = True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
